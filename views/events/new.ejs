@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+
+<form action="/events" method="post"> <!-- Event form -->
+    <label>Title:
+      <input type="text" name="eventTitle" required>
+    </label>
+
+    <label>Date and time: <!-- formate the date/time later -->>
+      <input 
+        type="datetime-local"
+        name="date"
+        required
+        >
+    </label>
+
+    <label>Duration:
+      <input type="number" name="duration">
+    </label>
+
+    <label>Location:
+      <input type="text" name="location">
+    </label>
+
+    <label>Venue Type:
+      <select name="venueType">
+        <option value="Indoor">Indoor</option>
+        <option value="Outdoor">Outdoor</option>
+      </select>
+    </label>
+
+    <label>Description:
+      <input type="text" name="description" checked>
+    </label>
+
+
+    <label>Capacity:
+      <input type="number" name="capacity" checked>
+    </label>
+
+    <button type="submit">Add Event</button> <!-- Form submit button -->
+  </form>
+
+<%- include('../partials/footer') %>

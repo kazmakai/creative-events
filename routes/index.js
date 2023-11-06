@@ -3,8 +3,12 @@ var passport = require('passport');
 var router = express.Router();
 
 /* GET home page. */
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// });
+// Redirect home to All Events page
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.redirect('/events');
 });
 
 // Google OAuth login route
