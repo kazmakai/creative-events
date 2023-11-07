@@ -8,10 +8,10 @@
     <nav>
         <a href="/events">All Events</a>
         <a href="/events/new">Create Event</a>
-        <a href="/users">User</a>
         |
         <% if (user) { %>
             <a href="/logout">Logout</a>
+            <a href="/users/<%= user.id %>">User</a>
         <% } else { %>
             <a href="/auth/google" class="login">Login&nbsp;</a>
         <% } %>

@@ -1,5 +1,5 @@
 const Event = require('../models/event');
-
+const cloudinary = require('../utilities/cloudinary');
 
 module.exports = {
     index,
@@ -10,7 +10,7 @@ module.exports = {
 
 async function index(req, res) {
     const events = await Event.find({});
-    console.log(events);
+    // console.log(events);
     res.render('events/index', {title: 'All Events', events});
 }
 

@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const commentCtrl = require('../controllers/comment');
+const commentController = require('../controllers/comment');
 // Add ensureLoggedIn later
 
 
 // POST /events/:id/comments (create comment for an event)
-router.post('/events/:id/comments', commentCtrl.create);
+router.post('/events/:id/comments', ensureLoggedIn, commentController.create);
 // DELETE / comments
-router.post('/comments/:id', commentCtrl.delete);
+router.delete('/comments/:id', ensureLoggedIn, commentController.delete);
 
 module.exports = router;

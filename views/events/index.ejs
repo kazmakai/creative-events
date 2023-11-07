@@ -1,14 +1,11 @@
 <%- include('../partials/header') %>
 
-<div>Sort by Location</div>
-
-
 <% events.forEach(function(e) { %>
     <div class="card-container">
        
         <img class="thumbnail-photo" src="../images/thumbnail_1.jpg">
         <div class="card-texts">
-            <h2><%= e.eventTitle %></h2>
+            <h2><%= e.title %></h2>
             <p><%= e.location %></p>
             <p><%= e.date.toLocaleDateString() %></p>
         </div>
@@ -35,6 +32,4 @@
             <p>Time:</p>
         </div> 
     </div> -->
-
-
 <%- include('../partials/footer') %>

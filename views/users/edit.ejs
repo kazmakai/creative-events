@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+<form action="/users/<%= user._id %>" enctype="multipart/form-data" method="put">
+    <label>Profile picture:
+        <input type="file" name="image">
+    </label>
+
+    <label>Username:
+        <input type="text" name="userName" required pattern="^[a-zA-Z0-9_-]{3,20}$">
+    </label>
+
+    <label>City:
+        <input type="text" name="city" required>
+    </label>
+
+    <label>Interests:
+        <input type="text" name="interests" required>
+    </label>
+
+    <label>About me:
+        <textarea type="text" name="aboutMe" required pattern="^[a-z]{0,10}$"></textarea>
+    </label>
+    
+    <button type="submit">Save changes</button>
+</form>
+<%- include('../partials/footer') %>

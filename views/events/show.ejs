@@ -1,18 +1,51 @@
-<%- include('../partials/headerr') %>
+<%- include('../partials/header') %>
 
 <div class="event-form-container">
-    <img class="hero-photo" src="/images/thumbnail_1.jpg">
-    <h2>Title:</h2>
-    <p>Location:</p>
-    <p>Time:</p>
-    <p>Organier:</p>
-    <p>Description:</p>
+
+    <img class="hero-photo" src="../images/thumbnail_1.jpg">
+    <h2><%= event.title %></h2>
+    <p><%= event.location %></p>
+    <p><%= event.venueType %></p>
+    <p><%= event.date.toLocaleDateString() %></p>
+    <p><%= event.description %></p>
+    <p><%= event.cost %></p>
     <p>Attendees:</p>
+
 </div>
+
 
 <div class="event-form-container">
     <h2>Comment section</h2>
+    <form action="/events/<%= event._id %>/comments" method="post">
+        <p><%= user.userName %></p>
+        <textarea name="content"></textarea>
+        <button type="submit">Add comment</button>
+    </form>
 
+    <% if (event.comments) { %>
+        <div>
+          <h3>Comments</h3>
+          <div>
+            <% event.comments.forEach(function(c) { %>
+              <div>
+                <div>
+                  <img alt="avatar" src="<%= c.avatar %>" referrerpolicy="no-referrer">
+                  <%= c.userName %>
+                </div>
+                <div><%= c.createdAt.toLocaleDateString() %></div>
+                <div><%= c.content %></div>
+                <% if (user?._id.equals(c.user)) { %>
+                  <form action="/<%= c._id %>?_method=delete" method="post">
+                    <button type="submit">Delete</button>
+                  </form>
+                <% } %>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+      <% } else { %>
+        <p>No comments yet</p>
+      <% } %>
 </div>
 
 <%- include('../partials/footer') %>

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    name: String,
+    userName: String,
     googleId: {
         type: String,
         required: true
@@ -12,7 +12,6 @@ const userSchema = new Schema({
     cloudinary_id: {
         type: String
     },
-    
     city: String,
     aboutMe: String,
     interests: String,

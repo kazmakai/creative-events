@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 // Connect events route to events controller
 const eventsController = require('../controllers/events');
+// Require the auth middleware
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 // GET /events
 router.get('/', eventsController.index);

@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 // Defining the basic schema for the event Model
 const eventSchema = new Schema({
-    eventTitle: String,
+    title: String,
     date: {
         type: Date,
         default: () => {
@@ -22,9 +22,9 @@ const eventSchema = new Schema({
     },
     organizer: String, // Need to update to user who made the event
     description: String,
-    tags: {
+    eventType: {
         type: String,
-        enum: [ 'Drawing', 'Painting', 'Music', 'Pottery', 'Creativity', 'Socialize', 'Design', 'Craft' ]
+        enum: [ 'Drawing', 'Painting', 'Music', 'Pottery', 'Crafts' ]
     },
     capacity: String, // Need to update with actual users
     cost: Number,
@@ -35,7 +35,7 @@ const eventSchema = new Schema({
     going: Boolean,
     comments: {
         type: Schema.Types.ObjectId,
-        ref: 'Comments'
+        ref: 'Comment'
     }
 }, {
     timestamps: true

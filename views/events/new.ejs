@@ -2,10 +2,10 @@
 
 <form action="/events" method="post"> <!-- Event form -->
     <label>Title:
-      <input type="text" name="eventTitle" required>
+      <input type="text" name="title" required>
     </label>
 
-    <label>Date and time: <!-- formate the date/time later -->>
+    <label>Date and time: <!-- formate the date/time later -->
       <input 
         type="datetime-local"
         name="date"
@@ -28,16 +28,33 @@
       </select>
     </label>
 
+    <label>Event Type:
+      <select name="eventType">
+        <option value="Drawing">Drawing</option>
+        <option value="Painting">Painting</option>
+        <option value="Music">Music</option>
+        <option value="Pottery">Pottery</option>
+        <option value="Crafts">Crafts</option>
+      </select>
+    </label>
+
     <label>Description:
       <input type="text" name="description" checked>
     </label>
 
+    <label>Cost:
+      <input type="text" name="cost" checked>
+    </label>
+
+    <!-- <label>Tags:
+      <input type="text" name="description" checked>
+    </label> -->
 
     <label>Capacity:
       <input type="number" name="capacity" checked>
     </label>
 
-    <button type="submit">Add Event</button> <!-- Form submit button -->
+    <button type="submit">Add Event</button> 
   </form>
 
 <%- include('../partials/footer') %>

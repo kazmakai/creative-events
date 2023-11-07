@@ -8,8 +8,8 @@ const commentSchema = new Schema({
         ref: 'User',
         required: true
     },
-    userName: String,
-    userAvatar: String
+    name: String,
+    avatar: String
 }, {
     timestamps: true
 });
