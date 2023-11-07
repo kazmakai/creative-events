@@ -16,36 +16,35 @@
 
 <div class="event-form-container">
     <h2>Comment section</h2>
+
+    <!-- write a comment here -->
     <form action="/events/<%= event._id %>/comments" method="post">
         <p><%= user.userName %></p>
         <textarea name="content"></textarea>
         <button type="submit">Add comment</button>
     </form>
 
+    <!-- comment section -->
     <% if (event.comments) { %>
         <div>
-          <h3>Comments</h3>
-          <div>
             <% event.comments.forEach(function(c) { %>
-              <div>
                 <div>
-                  <img alt="avatar" src="<%= c.avatar %>" referrerpolicy="no-referrer">
-                  <%= c.userName %>
+                    <img alt="avatar" src="<%= c.avatar %>" referrerpolicy="no-referrer">
+                    <%= c.userName %>
                 </div>
                 <div><%= c.createdAt.toLocaleDateString() %></div>
                 <div><%= c.content %></div>
+
                 <% if (user?._id.equals(c.user)) { %>
-                  <form action="/<%= c._id %>?_method=delete" method="post">
-                    <button type="submit">Delete</button>
-                  </form>
+                    <form action="/events/<%= c._id %>?_method=delete" method="post">
+                        <button type="submit">&times;</button>
+                    </form>
                 <% } %>
-              </div>
             <% }); %>
-          </div>
         </div>
-      <% } else { %>
+    <% } else { %>
         <p>No comments yet</p>
-      <% } %>
+    <% } %>
 </div>
 
 <%- include('../partials/footer') %>
