@@ -12,6 +12,8 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+  color: #2b53ff;
 }
 
 h1 {
@@ -65,8 +67,15 @@ h2 {
   border-radius: 8px;
 }
 
-.hero-photo {
+.event-banner {
   width: 100%;
   object-fit: fill;
   border-radius: 8px;
+}
+
+.user-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 100%;
 }

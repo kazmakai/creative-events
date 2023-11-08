@@ -5,16 +5,19 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <nav>
-        <a href="/events">All Events</a>
-        <a href="/events/new">Create Event</a>
-        |
+    <ul>
+        <li>
+          <a href="/events">All Events</a>
+        </li>
+
         <% if (user) { %>
-            <a href="/logout">Logout</a>
-            <a href="/users/<%= user.id %>">User</a>
+            |
+            <li><a href="/events/new">Create Event</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/users/<%= user.id %>">User</a></li>
         <% } else { %>
-            <a href="/auth/google" class="login">Login&nbsp;</a>
+            <li><a href="/auth/google" class="login">Login</a></li>
         <% } %>
-    </nav>
+    </ul>
     <h1><%= title %></h1>
     <div class="main-container">

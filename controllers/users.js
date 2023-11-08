@@ -1,6 +1,6 @@
 const User = require('../models/user');
 const cloudinary = require('../utilities/cloudinary');
-
+// const upload = require('../utils/multer');
 
 module.exports = {
     edit,
@@ -31,7 +31,6 @@ async function update(req, res) {
             avatar: result.secure_url,
             cloudinary_id: result.public_id
         });
-        console.log(user);
         await user.save();
         res.redirect(`/users/${user._id}`);
     } catch(err) {

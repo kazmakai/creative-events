@@ -1,16 +1,32 @@
 <%- include('../partials/header') %>
 
 <div class="event-form-container">
-
-    <img class="hero-photo" src="../images/thumbnail_1.jpg">
+    <img class="event-banner" src="<%= event.image %>" alt="picture">
     <h2><%= event.title %></h2>
     <p><%= event.location %></p>
     <p><%= event.venueType %></p>
     <p><%= event.date.toLocaleDateString() %></p>
     <p><%= event.description %></p>
     <p><%= event.cost %></p>
-    <p>Attendees:</p>
 
+    <!-- attend button -->
+    <form action="/events/<%= event._id %>/comments" method="POST">
+        <button type="submit">Attend event</button>
+    </form>
+    
+    <!-- attendees list -->
+    <h2>Attendees:</h2>
+    <% if (event.users) {%>
+
+            <ul>
+                <% event.users.forEach(function(u) { %>
+                  <li><%= u.user %></li>
+                <% }) %>
+            </ul>
+
+    <% } else { %>
+        <p>No one RSVPed yet...</p>
+    <% } %>
 </div>
 
 
@@ -45,6 +61,21 @@
     <% } else { %>
         <p>No comments yet</p>
     <% } %>
+</div>
+
+
+
+
+
+<div class="event-form-container">
+<!-- Edit event -->
+        <a href="/events/<%= event._id %>/edit">
+            <button type="submit">Edit event</button>
+        </a>
+<!-- Delete event -->
+        <form action="/events/<%= event._id %>?_method=DELETE" method="POST">
+          <button type="submit">Delete event</button>
+        </form>
 </div>
 
 <%- include('../partials/footer') %>

@@ -20,6 +20,10 @@ const commentSchema = new Schema({
 // Defining the basic schema for the event Model
 const eventSchema = new Schema({
     title: String,
+    image: {
+        type: String,
+        default: "public/images/thumbnail_1.jpg"
+    },
     date: {
         type: Date,
         default: () => {
@@ -54,4 +58,4 @@ const eventSchema = new Schema({
 });
 
 // Compiling the Schema into a Model
-module.exports = mongoose.model('Events', eventSchema);
+module.exports = mongoose.model('Event', eventSchema);

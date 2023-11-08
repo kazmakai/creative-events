@@ -1,11 +1,15 @@
 <%- include('../partials/header') %>
 
-<form action="/events" method="POST"> <!-- Event form -->
+<form action="/events/<%= event._id %>?_method=PUT" method="POST">
+    <label>Event Picture:
+      <input type="file" name="image">
+    </label>
+  
     <label>Title:
       <input type="text" name="title" required>
     </label>
 
-    <label>Date and time: <!-- formate the date/time later -->
+    <label>Date and time:
       <input 
         type="datetime-local"
         name="date"
@@ -39,11 +43,11 @@
     </label>
 
     <label>Description:
-      <input type="text" name="description">
+      <input type="text" name="description" checked>
     </label>
 
     <label>Cost:
-      <input type="text" name="cost">
+      <input type="text" name="cost" checked>
     </label>
 
     <!-- <label>Tags:
@@ -51,10 +55,10 @@
     </label> -->
 
     <label>Capacity:
-      <input type="number" name="capacity">
+      <input type="number" name="capacity" checked>
     </label>
 
-    <button type="submit">Add Event</button> 
+    <button type="submit">Confirm Edit Event</button> 
   </form>
 
 <%- include('../partials/footer') %>
