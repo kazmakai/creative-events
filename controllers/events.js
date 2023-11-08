@@ -24,8 +24,6 @@ async function show(req, res) {
 }
 
 function newEvent(req, res) {
-    const newEvent = new Event();
-    const dt = newEvent.start;
     res.render('/events/new', { title: 'Create Event', errorMsg: ''});
 }
 

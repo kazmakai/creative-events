@@ -1,19 +1,23 @@
 <%- include('../partials/header') %>
 
-<div class="card-container">
+<div class="profile-container">
     <img class="user-photo" src="<%= user.avatar %>" alt="picture">
-    <div class="card-texts">
-        <h2><%= user.name %></h2>
-        <p><%= user.city %></p>
-        <p><%= user.interests %></p>
-        <p><%= user.aboutMe %></p>
-        <p><%= user.eventsAttended %></p>
-        <p><%= user.eventsHosted %></p>
+    <div class="profile-texts">
+        <a href="/users/<%= user._id %>/edit">
+            <button type="submit" class="edit-button">Edit Profile</button>
+        </a>
+        <div>
+            <h2><%= user.name %></h2>
+            <p><%= user.city %></p>
+            <p><%= user.interests %></p>
+            <p><%= user.aboutMe %></p>
+            <p><%= user.eventsAttended %></p>
+            <p><%= user.eventsHosted %></p>
+        </div>
     </div>
 
-    <a href="/users/<%= user._id %>/edit">
-        <button type="submit">Edit Profile</button>
-    </a>
+
+
 </div>
 
 <%- include('../partials/footer') %>

@@ -1,70 +1,258 @@
 * {
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Courier New', Courier, monospace ;
   font-size: 16px;
+  padding: 0;
+  margin: 0;
 }
 
 body {
   background-color: whitesmoke;
-  padding: 25px 50px;
-  /* border: 2px solid; */
+}
+
+/* NAVBAR */ 
+
+nav {
+  width: 100%;
+  display: flex;
+  padding: 2em;
+  margin-bottom: 4em;
+  background-color: white;
+  border-radius: 0 0 16px 16px;
+}
+
+nav > a:first-child {
+  margin-right: auto;
 }
 
 a {
-  color: #00B7FF;
   text-decoration: none;
-  color: #2b53ff;
 }
 
+nav > a {
+  padding: 0 25px;
+  margin: 0 0.5em;
+  color: white;
+  border-radius: 8px;
+  background-color: #f3bb00;
+  font-weight: 600;
+}
+
+nav > a:hover {
+  background-color: #8C44FF;
+}
+
+a > img {
+  margin-right: 5px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+}
+
+.home-button {
+  background-color: transparent;
+  color: #f3bb00;
+  font-weight: 700;
+  font-size: 3.5em;
+}
+
+.home-button:hover {
+  background-color: transparent;
+  color: #8C44FF;
+}
+
+/* ALL EVENTS */
+
 h1 {
+  font-size: 2.5em;
+}
+
+h2 {
   font-size: 2em;
 }
 
-/* end of header */
-
-h2 {
+h3 {
   font-size: 1em;
+  text-transform: uppercase;
 }
 
 .main-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
   padding: 1em;
-  /* border: 2px solid red; */
 }
 
 .card-container {
   display: flex;
+  align-items: stretch;
   margin: 1.5em 0;
   padding: 1em;
   background-color: white;
-  /* border: 1px solid grey; */
+  color: black;
   border-radius: 8px;
+}
+
+.card-container:hover{
+  outline: 4px solid #8C44FF;
+  color: #8C44FF;
 }
 
 .thumbnail-photo {
   object-fit: cover;
-  width: 250px;
-  height: 150px;
+  max-width: 400px;
+  height: 100%;
   border-radius: 8px;
 }
 
 .card-texts {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   width: 100%;
-  justify-content: space-between;
   padding: 0 2em;
-  /* border: 1px solid red; */
+  /* border: 1px solid; */
 }
 
-.event-form-container {
+.event-title {
+  font-size: 1.5em;
+}
+
+/* PROFILE */
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  margin: 1.5em 0;
+  padding: 2em 4em;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+}
+
+.profile-texts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 400px;
+  padding: 0 2em;
+}
+
+.user-photo {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.edit-button {
+  background-color: transparent;
+  color: grey;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  color: #8C44FF;
+}
+
+/* form edit */
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: flex-start;
+  height: 800px;
+  margin: 1.5em 0;
+  padding: 4em 12em;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+}
+
+label > h3 {
+  color: grey;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+input[type=file]::file-selector-button {
+  padding: 0.2em 0.7em;
+  border: none;
+  color: white;
+  background-color: #f3bb00;
+  border-radius: 8px;
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: #8C44FF;
+}
+
+input[type=file] {
+  width: 100%;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  outline:1px solid #f3bb00;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+input[type=text]:focus {
+  outline: 4px solid #8C44FF;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  outline:1px solid #f3bb00;
+  box-sizing: border-box;
+  border-radius: 8px;
+  resize: vertical;
+  height: 200px;
+}
+
+textarea:focus {
+  outline: 4px solid #8C44FF;
+}
+
+.event-form {
   margin: 1.5em 0;
   padding: 1em;
   background-color: white;
   /* border: 1px solid grey; */
   border-radius: 8px;
+}
+
+.save-button {
+  background-color: black;
+  border: none;
+  padding: 1em 2em;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #8C44FF;
 }
 
 .event-banner {
@@ -73,9 +261,3 @@ h2 {
   border-radius: 8px;
 }
 
-.user-photo {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 100%;
-}

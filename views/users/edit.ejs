@@ -1,25 +1,30 @@
 <%- include('../partials/header') %>
-<form action="/users/<%= user._id %>" enctype="multipart/form-data" method="POST">
-    <label>Profile picture:
+<form action="/users/<%= user._id %>" enctype="multipart/form-data" method="POST" class="form-container">
+    <label>
+        <h3>Profile picture:</h3>
         <input type="file" name="image">
     </label>
 
-    <label>Username:
+    <label>
+        <h3>Username:</h3>
         <input type="text" name="userName" required pattern="^[a-zA-Z0-9_-]{3,20}$">
     </label>
 
-    <label>City:
+    <label>
+        <h3>Your location</h3>
         <input type="text" name="city" required>
     </label>
 
-    <label>Interests:
+    <label>
+        <h3>Interests:</h3>
         <input type="text" name="interests" required>
     </label>
 
-    <label>About me:
+    <label>
+        <h3>Bio:</h3>
         <textarea type="text" name="aboutMe" required pattern="^[a-z]{0,10}$"></textarea>
     </label>
     
-    <button type="submit">Save changes</button>
+    <button type="submit" class="save-button">Save changes</button>
 </form>
 <%- include('../partials/footer') %>

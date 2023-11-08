@@ -5,9 +5,11 @@
     <div class="card-container">
         <img class="thumbnail-photo" src="../images/thumbnail_1.jpg">
         <div class="card-texts">
-            <h2><%= e.title %></h2>
-            <p><%= e.location %></p>
-            <p><%= e.date.toLocaleDateString() %></p>
+            <h3 class="event-title"><%= e.title %></h3>
+            <div>
+                <h3><%= e.location %></h3>
+                <h3><%= e.date.toLocaleDateString() %></h3>
+            </div>
         </div>
     </div>
 </a>

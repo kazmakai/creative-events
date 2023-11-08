@@ -5,19 +5,16 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <ul>
-        <li>
-          <a href="/events">All Events</a>
-        </li>
-
+    <nav>
+        <a class="home-button nav-link" href="/events">Art Jammers</a>
         <% if (user) { %>
-            |
-            <li><a href="/events/new">Create Event</a></li>
-            <li><a href="/logout">Logout</a></li>
-            <li><a href="/users/<%= user.id %>">User</a></li>
+          <a class="nav-link" href="/events/new"><img src="/images/plus.svg">Create Event</a>
+          <a class="nav-link" href="/users/<%= user.id %>"><img src="/images/user.svg">User</a>
+          <a class="nav-link" href="/logout"><img src="/images/logout.svg"></a></li>
         <% } else { %>
-            <li><a href="/auth/google" class="login">Login</a></li>
+          <a class="nav-link" href="/auth/google"><img src="/images/login.svg"></a>
         <% } %>
-    </ul>
-    <h1><%= title %></h1>
+    </nav>
+    
     <div class="main-container">
+      <h2><%= title %></h2>
