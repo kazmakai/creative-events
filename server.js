@@ -5,12 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
-<<<<<<< HEAD
 var methodOverride = require('method-override');
 var mongoStore = require('connect-mongo');
-=======
-var mongoStore = require('connect-mongo')
->>>>>>> origin/main
 
 require('dotenv').config();
 require('./config/database');

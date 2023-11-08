@@ -1,10 +1,6 @@
 const express = require('express');
 const router = express.Router();
-<<<<<<< HEAD
 const commentsController = require('../controllers/comments');
-=======
-const commentController = require('../controllers/comments');
->>>>>>> origin/main
 // Add ensureLoggedIn later
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 
