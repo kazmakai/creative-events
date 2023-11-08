@@ -19,10 +19,6 @@ async function edit(req,res) {
 }
 
 async function update(req, res) {
-<<<<<<< HEAD
-=======
-    console.log('test comment')
->>>>>>> origin/main
     try {
         const result = await cloudinary.uploader.upload(req.file.path);
         const user = await User.findByIdAndUpdate(req.params.id, {
