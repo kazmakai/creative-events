@@ -19,6 +19,10 @@ async function edit(req,res) {
 }
 
 async function update(req, res) {
+<<<<<<< HEAD
+=======
+    console.log('test comment')
+>>>>>>> origin/main
     try {
         const result = await cloudinary.uploader.upload(req.file.path);
         const user = await User.findByIdAndUpdate(req.params.id, {
@@ -31,6 +35,7 @@ async function update(req, res) {
             avatar: result.secure_url,
             cloudinary_id: result.public_id
         });
+        console.log(user);
         await user.save();
         res.redirect(`/users/${user._id}`);
     } catch(err) {

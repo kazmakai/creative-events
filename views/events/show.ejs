@@ -18,7 +18,11 @@
     <h2>Comment section</h2>
 
     <!-- write a comment here -->
+<<<<<<< HEAD
     <form action="/events/<%= event._id %>/comments" method="POST">
+=======
+    <form action="/events/<%= event._id %>/comments" method="post">
+>>>>>>> origin/main
         <p><%= user.userName %></p>
         <textarea name="content"></textarea>
         <button type="submit">Add comment</button>
@@ -34,9 +38,15 @@
                 </div>
                 <div><%= c.createdAt.toLocaleDateString() %></div>
                 <div><%= c.content %></div>
+<<<<<<< HEAD
                 <!-- delete a comment -->
                 <% if (user?._id.equals(c.user)) { %>
                     <form action="/events/<%= c._id %>?_method=DELETE" method="POST">
+=======
+
+                <% if (user?._id.equals(c.user)) { %>
+                    <form action="/events/<%= c._id %>?_method=delete" method="post">
+>>>>>>> origin/main
                         <button type="submit">&times;</button>
                     </form>
                 <% } %>

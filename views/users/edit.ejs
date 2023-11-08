@@ -1,5 +1,9 @@
 <%- include('../partials/header') %>
+<<<<<<< HEAD
 <form action="/users/<%= user._id %>" enctype="multipart/form-data" method="POST">
+=======
+<form action="/users/<%= user._id %>?_method=PUT" enctype="multipart/form-data" method="post">
+>>>>>>> origin/main
     <label>Profile picture:
         <input type="file" name="image">
     </label>
