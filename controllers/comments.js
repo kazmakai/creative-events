@@ -23,11 +23,14 @@ async function create(req, res) {
 }
 
 async function deleteComment(req, res) {
-    const event = await Event.findOne({ 'comments._id': req.params.id, 'comments.user': req.user._id });
-    if (!event) return res.redirect('/events');
-    event.comments.remove(req.params.id);
-    // Save the updated movie doc
-    await event.save();
-    // Redirect back to the event's show view
-    res.redirect(`/events/${event._id}`);
+  // Note the cool "dot" syntax to query on the property of a subdoc
+  const event = await Event.findOne({ 'comments._id': req.params.id, 'comments.user': req.user._id });
+  // Rogue user!
+  if (!event) return res.redirect('/events');
+  // Remove the review using the remove method available on Mongoose arrays
+  event.comments.remove(req.params.id);
+  // Save the updated event doc
+  await event.save();
+  // Redirect back to the event's show view
+  res.redirect(`/events/${event._id}`);
 }

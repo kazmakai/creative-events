@@ -1,7 +1,6 @@
 <%- include('../partials/header') %>
 
 <div class="card-container">
-       
     <img src="<%= user.avatar %>" alt="picture">
     <div class="card-texts">
         <h2><%= user.name %></h2>
@@ -12,9 +11,9 @@
         <p><%= user.eventsHosted %></p>
     </div>
 
-    <form action="/users/<%= user._id %>/edit" method="get">
+    <a href="/users/<%= user._id %>/edit">
         <button type="submit">Edit Profile</button>
-    </form>
+    </a>
 </div>
 
 <%- include('../partials/footer') %>

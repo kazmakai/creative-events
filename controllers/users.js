@@ -19,11 +19,15 @@ async function edit(req,res) {
 }
 
 async function update(req, res) {
-    req.body.user = req.user._id;
     try {
         const result = await cloudinary.uploader.upload(req.file.path);
-        let user = new User({
+        const user = await User.findByIdAndUpdate(req.params.id, {
             name: req.body.name,
+            userName: req.body.userName,
+            email: req.body.email,
+            city: req.body.city,
+            aboutMe: req.body.aboutMe,
+            interests: req.body.interests,
             avatar: result.secure_url,
             cloudinary_id: result.public_id
         });

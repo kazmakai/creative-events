@@ -3,6 +3,20 @@ const mongoose = require('mongoose');
 // Optional shortcut to the mongoose.Schemma class
 const Schema = mongoose.Schema;
 
+
+const commentSchema = new Schema({
+    content: String,
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    name: String,
+    avatar: String
+}, {
+    timestamps: true
+});
+
 // Defining the basic schema for the event Model
 const eventSchema = new Schema({
     title: String,
@@ -32,11 +46,9 @@ const eventSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }],
-    going: Boolean,
-    comments: {
-        type: Schema.Types.ObjectId,
-        ref: 'Comment'
-    }
+    comments: [
+        commentSchema
+    ]
 }, {
     timestamps: true
 });

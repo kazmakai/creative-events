@@ -23,9 +23,6 @@ function newEvent(req, res) {
     const newEvent = new Event();
     // Obtain the default date
     const dt = newEvent.start;
-    // Format the date for the value attricbute fo the input
-    // let startDate = `${dt.getFullYear()}-${(dt.getMonth() + 1).toString().padStart(2, '0')}`;
-    // startDate += `-${dt.getDate().toString().padStart(2, '0')}T${dt.toTimeString().slice(0, 5)}`;
     res.render('events/new', { title: 'Create Event', errorMsg: ''});
 }
 

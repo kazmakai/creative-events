@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<form action="/users/<%= user._id %>" enctype="multipart/form-data" method="put">
+<form action="/users/<%= user._id %>" enctype="multipart/form-data" method="POST">
     <label>Profile picture:
         <input type="file" name="image">
     </label>
