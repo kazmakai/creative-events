@@ -1,59 +1,61 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
 
-<div class="event-form-container">
+<div class="show-container">
+    <h2 class="event-title"><%= event.title %></h2>
+    <p>hosted by <%= user.userName %></p>
     <img class="event-banner" src="/images/thumbnail_1.jpg" alt="picture">
-    <h2><%= event.title %></h2>
-    <p><%= event.location %></p>
-    <p><%= event.date.toLocaleDateString() %></p>
-    <p>hosted by <%= user.name %></p>
-    <p><%= event.venueType %></p>
-    <p><%= event.description %></p>
-    <p><%= event.cost %></p>
+    <div class="grid-container">
+        <div class="grid-item">
+            <p><%= event.description %></p>
+        </div>
+        <div class="grid-item">
+            <p id="location"><%= event.location %></p>
+            <p id="time"><%= event.date.toLocaleDateString() %></p>
+            <p id="price">$<%= event.cost %></p>
+            <p id="capacity"><%= event.capacity %></p>
+            <div class="edit-delete-buttons">
+                <!-- edit event-->
+                <a href="/events/<%= event._id %>/edit">
+                    <button type="submit" class="edit-button">Edit event</button>
+                </a>
+                <!-- delete event button -->
+                <form action="/events/<%= event._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="edit-button delete">Delete event</button>
+                </form>
+            </div>
 
-<div class="event-form-container">
-    <h2>Comment section</h2>
+        </div>
+    </div>
+    
 
+    <h2>Comments</h2>
     <!-- write a comment here -->
     <% if (user) { %>
-        <form action="/events/<%= event._id %>/comments" method="POST">
-            <p><%= user.name %></p>
-            <textarea name="content"></textarea>
-            <button type="submit">Add comment</button>
+        <form action="/events/<%= event._id %>/comments" method="POST" class="comment-form">
+            <textarea name="content" placeholder="Add a comment..."></textarea>
+            <button type="submit" class="save-button">Add comment</button>
         </form>
     <% } %>
     <!-- comment section -->
     <% if (event.comments.length) { %>
-        <div>
+        <div class="comments-wrapper">
             <% event.comments.forEach(function(c) { %>
-                <div>
-                    <img alt="avatar" src="<%= c.avatar %>" referrerpolicy="no-referrer">
-                    <%= c.userName %>
+                <div  class="comment-container">
+                    <h3><%= c.userName %></h3>
+                    <img alt="avatar" src="<%= c.avatar %>" referrerpolicy="no-referrer" class="user-thumbnail">
+                    <div class="comment-texts">
+                        <p class="comment-timestamp"><%= c.createdAt.toLocaleDateString() %></p>
+                        <p><%= c.content %></p>
+                    </div>
+                    <!-- delete a comment -->
+                    <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="comment-delete-button">&times;</button>
+                    </form>
                 </div>
-                <div><%= c.createdAt.toLocaleDateString() %></div>
-                <div><%= c.content %></div>
-                <!-- delete a comment -->
-                      <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                          <button type="submit">&times;</button>
-                      </form>
             <% }); %>
         </div>
-    <% } else { %>
-        <p>No comments yet</p>
     <% } %>
-</div>
-
-
-
-<div class="event-form-container">
-<!-- Edit event -->
-        <a href="/events/<%= event._id %>/edit">
-            <button type="submit">Edit event</button>
-        </a>
-<!-- Delete event -->
-        <form action="/events/<%= event._id %>?_method=DELETE" method="POST">
-          <button type="submit">Delete event</button>
-        </form>
 </div>
 
 <%- include('../partials/footer') %>

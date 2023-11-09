@@ -22,7 +22,7 @@ async function index(req, res) {
 
 async function show(req, res) {
     const event = await Event.findById(req.params.id);
-    const user = req.user
+    const user = req.user;
     // console.log(user);
     res.render('events/show', {title: 'Event Details', event, user});
 }
