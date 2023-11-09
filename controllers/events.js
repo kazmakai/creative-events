@@ -23,7 +23,7 @@ async function index(req, res) {
 async function show(req, res) {
     const event = await Event.findById(req.params.id);
     const user = await User.find({});
-    console.log(user);
+    // console.log(user);
     res.render('events/show', {title: 'Event Details', event, user});
 }
 
@@ -44,7 +44,7 @@ async function create(req, res) {
 
 async function deleteEvent(req, res) {
     const event = await Event.findById( req.params.id );
-    event.deleteOne({});
+    await event.deleteOne();
     res.redirect('/events');
 }
 

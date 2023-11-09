@@ -7,7 +7,7 @@
     </label>
   
     <label>Title:
-      <input type="text" name="title" value="<%=  %>">
+      <input type="text" name="title" value="<%= event.title %>">
     </label>
 
     <label>Date and time:
@@ -15,15 +15,16 @@
         type="datetime-local"
         name="date"
         required
+        value="<%= event.date %>"
         >
     </label>
 
     <label>Duration:
-      <input type="number" name="duration">
+      <input type="number" name="duration" value="<%= event.duration %>">
     </label>
 
     <label>Location:
-      <input type="text" name="location">
+      <input type="text" name="location" value="<%= event.location %>">
     </label>
 
     <label>Venue Type:
@@ -32,7 +33,7 @@
         <option value="Outdoor">Outdoor</option>
       </select>
     </label>
-
+<!-- 
     <label>Event Type:
       <select name="eventType">
         <option value="Drawing">Drawing</option>
@@ -41,14 +42,14 @@
         <option value="Pottery">Pottery</option>
         <option value="Crafts">Crafts</option>
       </select>
-    </label>
+    </label> -->
 
     <label>Description:
-      <input type="text" name="description" checked>
+      <input type="text" name="description" value="<%= event.description %>">
     </label>
 
     <label>Cost:
-      <input type="text" name="cost" checked>
+      <input type="text" name="cost" value="<%= event.cost %>">
     </label>
 
     <!-- <label>Tags:
@@ -56,7 +57,7 @@
     </label> -->
 
     <label>Capacity:
-      <input type="number" name="capacity" checked>
+      <input type="number" name="capacity" value="<%= event.capacity %>">
     </label>
 
     <button type="submit">Confirm Edit Event</button> 

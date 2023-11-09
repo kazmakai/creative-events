@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+// const upload = require('../utils/multer');
 // Connect events route to events controller
 const eventsController = require('../controllers/events');
 // Require the auth middleware
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 // const cloudinary = require('../utils/cloudinary');
-// const upload = require('../utils/multer');
+
 
 // GET /events
 router.get('/', eventsController.index);
