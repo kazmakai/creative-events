@@ -1,11 +1,7 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
 
-<form action="/events" method="POST"> <!-- Event form -->
-    <label>Title:
-      <input type="text" name="title" required>
-    </label>
-
+<form class="form-container" action="/events" method="POST"> <!-- Event form -->
     <label>Date and time: <!-- formate the date/time later -->
       <input 
         type="datetime-local"
@@ -14,22 +10,42 @@
         >
     </label>
 
-    <label>Duration:
-      <input type="number" name="duration">
+    <label>Event title:
+      <input type="text" name="title" required>
     </label>
 
     <label>Location:
       <input type="text" name="location">
     </label>
 
-    <label>Venue Type:
-      <select name="venueType">
-        <option value="Indoor">Indoor</option>
-        <option value="Outdoor">Outdoor</option>
-      </select>
+    <label>Description:
+      <textarea name="description" class="textarea"></textarea>
     </label>
 
-    <label>Event Type:
+    <label>Cost(¥):
+      <input type="text" name="cost">
+    </label>
+
+    <div class="inline-input">
+      <label>Group capacity:
+        <select name="capacity">
+          <option value="5-10">5-10</option>
+          <option value="10-15">10-15</option>
+          <option value="15-20">15-20</option>
+          <option value="20+">20+</option>
+        </select>
+      </label>
+  
+      <label>Venue type:
+        <select name="venueType">
+          <option value="Indoor">Indoor</option>
+          <option value="Outdoor">Outdoor</option>
+        </select>
+      </label>
+    </div>
+
+
+    <!-- <label>Event Type:
       <select name="eventType">
         <option value="Drawing">Drawing</option>
         <option value="Painting">Painting</option>
@@ -37,25 +53,17 @@
         <option value="Pottery">Pottery</option>
         <option value="Crafts">Crafts</option>
       </select>
-    </label>
+    </label> -->
 
-    <label>Description:
-      <input type="text" name="description">
-    </label>
-
-    <label>Cost:
-      <input type="text" name="cost">
-    </label>
+    <!-- <label>Duration:
+      <input type="number" name="duration">
+    </label> -->
 
     <!-- <label>Tags:
       <input type="text" name="description" checked>
     </label> -->
 
-    <label>Capacity:
-      <input type="number" name="capacity">
-    </label>
-
-    <button type="submit">Add Event</button> 
+    <button type="submit" class="save-button">Add Event</button> 
   </form>
 
 <%- include('../partials/footer') %>

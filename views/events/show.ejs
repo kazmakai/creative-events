@@ -10,10 +10,6 @@
             <p><%= event.description %></p>
         </div>
         <div class="grid-item">
-            <p id="location"><%= event.location %></p>
-            <p id="time"><%= event.date.toLocaleDateString() %></p>
-            <p id="price">$<%= event.cost %></p>
-            <p id="capacity"><%= event.capacity %></p>
             <div class="edit-delete-buttons">
                 <!-- edit event-->
                 <a href="/events/<%= event._id %>/edit">
@@ -24,7 +20,10 @@
                     <button type="submit" class="edit-button delete">Delete event</button>
                 </form>
             </div>
-
+            <p id="location"><%= event.location %></p>
+            <p id="time"><%= event.date.toLocaleDateString() %></p>
+            <p id="price">$<%= event.cost %></p>
+            <p id="capacity"><%= event.capacity %></p>
         </div>
     </div>
     

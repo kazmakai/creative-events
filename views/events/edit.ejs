@@ -1,15 +1,11 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
 
-<form action="/events/<%= event._id %>" method="POST">
+<form class="form-container" action="/events/<%= event._id %>" method="POST">
     <label>Event Picture:
       <input type="file" name="image">
     </label>
   
-    <label>Title:
-      <input type="text" name="title" value="<%= event.title %>">
-    </label>
-
     <label>Date and time:
       <input 
         type="datetime-local"
@@ -19,34 +15,41 @@
         >
     </label>
 
-    <label>Duration:
-      <input type="number" name="duration" value="<%= event.duration %>">
+    <label>Title:
+      <input type="text" name="title" value="<%= event.title %>">
     </label>
 
     <label>Location:
       <input type="text" name="location" value="<%= event.location %>">
     </label>
 
-    <label>Venue Type:
-      <select name="venueType">
-        <option value="Indoor">Indoor</option>
-        <option value="Outdoor">Outdoor</option>
-      </select>
-    </label>
-
     <label>Description:
-      <textarea name="description" value="<%= event.description %>" cols="30" rows="10"></textarea>
+      <textarea name="description"><%= event.description %></textarea>
     </label>
 
-    <label>Cost:
+    <label>Cost(¥):
       <input type="text" name="cost" value="<%= event.cost %>">
     </label>
 
-    <label>Capacity:
-      <input type="number" name="capacity" value="<%= event.capacity %>">
-    </label>
+    <div class="inline-input">
+      <label>Group capacity:
+        <select name="capacity" value="<%= event.capacity %>">
+          <option value="5-10">5-10</option>
+          <option value="10-15">10-15</option>
+          <option value="15-20">15-20</option>
+          <option value="20+">20+</option>
+        </select>
+      </label>
+  
+      <label>Venue type:
+        <select name="venueType" value="<%= event.venueType %>">
+          <option value="Indoor">Indoor</option>
+          <option value="Outdoor">Outdoor</option>
+        </select>
+      </label>
+    </div>
 
-    <button type="submit">Confirm Edit Event</button> 
+    <button type="submit" class="save-button">Confirm Edit Event</button> 
   </form>
 
 <%- include('../partials/footer') %>

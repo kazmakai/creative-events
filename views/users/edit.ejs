@@ -4,27 +4,22 @@
 <form action="/users/<%= user._id %>" enctype="multipart/form-data" method="POST" class="form-container">
     <label>
         <h3>Profile picture:</h3>
-        <input type="file" name="image">
+        <input type="file" name="image" value="<%= user.image %>">
     </label>
 
     <label>
         <h3>Username:</h3>
-        <input type="text" name="userName" required pattern="^[a-zA-Z0-9_-]{3,20}$">
+        <input type="text" name="userName" required pattern="^[a-zA-Z0-9_-]{3,20}$" value="<%= user.userName %>">
     </label>
 
     <label>
-        <h3>Your location</h3>
-        <input type="text" name="city" required>
+        <h3>City:</h3>
+        <input type="text" name="city" required value="<%= user.city %>">
     </label>
 
     <label>
-        <h3>Interests:</h3>
-        <input type="text" name="interests" required>
-    </label>
-
-    <label>
-        <h3>Bio:</h3>
-        <textarea type="text" name="aboutMe" required pattern="^[a-z]{0,10}$"></textarea>
+        <h3>About me:</h3>
+        <textarea type="text" name="aboutMe" required pattern="^[a-z]{0,10}$"><%= user.aboutMe %></textarea>
     </label>
     
     <button type="submit" class="save-button">Save changes</button>

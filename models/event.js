@@ -44,7 +44,10 @@ const eventSchema = new Schema({
         type: String,
         enum: [ 'Drawing', 'Painting', 'Music', 'Pottery', 'Crafts' ]
     },
-    capacity: Number, // Need to update with actual users
+    capacity: {
+        type: String,
+        enum: ['5-10', '10-15', '15-20', '20+']
+    },
     cost: Number,
     attendees: [{
         type: Schema.Types.ObjectId,

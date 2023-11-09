@@ -4,17 +4,14 @@
 <div class="profile-container">
     <img class="user-photo" src="<%= user.avatar %>" alt="picture">
     <div class="profile-texts">
+        <div>
+            <h2 class="inline username"><%= user.userName %>, </h2>
+            <p class="inline"><%= user.city %></p>
+            <p><%= user.aboutMe %></p>
+        </div>
         <a href="/users/<%= user._id %>/edit">
             <button type="submit" class="edit-button">Edit Profile</button>
         </a>
-        <div>
-            <h2><%= user.userName %></h2>
-            <p><%= user.city %></p>
-            <p><%= user.interests %></p>
-            <p><%= user.aboutMe %></p>
-            <p><%= user.eventsAttended %></p>
-            <p><%= user.eventsHosted %></p>
-        </div>
     </div>
 </div>
 
