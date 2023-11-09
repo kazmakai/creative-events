@@ -11,27 +11,6 @@
     <p><%= event.description %></p>
     <p><%= event.cost %></p>
 
-    <!-- attend button -->
-    <form action="/events/<%= event._id %>/comments" method="POST">
-        <button type="submit">Attend event</button>
-    </form>
-    
-    <!-- attendees list -->
-    <h2>Attendees:</h2>
-    <% if (event.attendees) {%>
-
-            <ul>
-                <% event.attendees.forEach(function(e) { %>
-                  <li><%= u.userName %></li>
-                <% }) %>
-            </ul>
-
-    <% } else { %>
-        <p>No one RSVPed yet...</p>
-    <% } %>
-</div>
-
-
 <div class="event-form-container">
     <h2>Comment section</h2>
 

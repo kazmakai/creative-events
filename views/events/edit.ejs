@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
 
-<form action="/events/<%= event._id %>?_method=PUT" method="POST">
+<form action="/events/<%= event._id %>" method="POST">
     <label>Event Picture:
       <input type="file" name="image">
     </label>
@@ -33,16 +33,6 @@
         <option value="Outdoor">Outdoor</option>
       </select>
     </label>
-<!-- 
-    <label>Event Type:
-      <select name="eventType">
-        <option value="Drawing">Drawing</option>
-        <option value="Painting">Painting</option>
-        <option value="Music">Music</option>
-        <option value="Pottery">Pottery</option>
-        <option value="Crafts">Crafts</option>
-      </select>
-    </label> -->
 
     <label>Description:
       <input type="text" name="description" value="<%= event.description %>">
@@ -51,11 +41,7 @@
     <label>Cost:
       <input type="text" name="cost" value="<%= event.cost %>">
     </label>
-
-    <!-- <label>Tags:
-      <input type="text" name="description" checked>
-    </label> -->
-
+    
     <label>Capacity:
       <input type="number" name="capacity" value="<%= event.capacity %>">
     </label>

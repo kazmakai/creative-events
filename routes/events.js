@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-// const upload = require('../utils/multer');
+const upload = require('../utilities/multer');
 // Connect events route to events controller
 const eventsController = require('../controllers/events');
 // Require the auth middleware
 const ensureLoggedIn = require('../config/ensureLoggedIn');
-// const cloudinary = require('../utils/cloudinary');
+// const cloudinary = require('../utilities/cloudinary');
 
 
 // GET /events
@@ -21,6 +21,6 @@ router.delete('/:id', eventsController.delete);
 // GET /events/:id/edit
 router.get('/:id/edit', eventsController.edit);
 // PUT /events/:id
-router.put('/:id', eventsController.update);
+router.post('/:id', eventsController.update);
 
 module.exports = router;

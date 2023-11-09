@@ -5,7 +5,7 @@ const upload = require('../utilities/multer');
 const usersController = require('../controllers/users');
 // Require the auth middleware
 const ensureLoggedIn = require('../config/ensureLoggedIn');
-// const cloudinary = require('../utils/cloudinary');
+// const cloudinary = require('../utilities/cloudinary');
 
 
 // GET /users/:id/edit 

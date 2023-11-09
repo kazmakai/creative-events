@@ -1,6 +1,6 @@
 const Event = require('../models/event');
 const User = require('../models/user');
-// const cloudinary = require('../utilities/cloudinary');
+const cloudinary = require('../utilities/cloudinary');
 // const upload = require('../utils/multer');
 
 module.exports = {
@@ -22,7 +22,7 @@ async function index(req, res) {
 
 async function show(req, res) {
     const event = await Event.findById(req.params.id);
-    const user = await User.find({});
+    const user = req.user
     // console.log(user);
     res.render('events/show', {title: 'Event Details', event, user});
 }
