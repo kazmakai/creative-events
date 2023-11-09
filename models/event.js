@@ -22,7 +22,7 @@ const eventSchema = new Schema({
     title: String,
     image: {
         type: String,
-        default: "public/images/thumbnail_1.jpg"
+        default: "/images/thumbnail_1.jpg"
     },
     date: {
         type: Date,

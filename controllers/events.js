@@ -1,5 +1,5 @@
 const Event = require('../models/event');
-// const User = require('../models/user');
+const User = require('../models/user');
 // const cloudinary = require('../utilities/cloudinary');
 // const upload = require('../utils/multer');
 
@@ -14,17 +14,21 @@ module.exports = {
 }
 
 async function index(req, res) {
+    // const user = await User.findOne({_id:req.user._id});
+    // console.log(req.user);
     const events = await Event.find({});
     res.render('events/index', {title: 'All Events', events});
 }
 
 async function show(req, res) {
     const event = await Event.findById(req.params.id);
-    res.render('events/show', {title: 'Event Details', event});
+    const user = await User.find({});
+    console.log(user);
+    res.render('events/show', {title: 'Event Details', event, user});
 }
 
 function newEvent(req, res) {
-    res.render('/events/new', { title: 'Create Event', errorMsg: ''});
+    res.render('events/new', { title: 'Create Event', errorMsg: ''});
 }
 
 async function create(req, res) {
@@ -40,7 +44,7 @@ async function create(req, res) {
 
 async function deleteEvent(req, res) {
     const event = await Event.findById( req.params.id );
-    await event.deleteOne({});
+    event.deleteOne({});
     res.redirect('/events');
 }
 

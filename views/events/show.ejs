@@ -1,11 +1,13 @@
 <%- include('../partials/header') %>
+<h1><%= title %></h1>
 
 <div class="event-form-container">
-    <img class="event-banner" src="<%= event.image %>" alt="picture">
+    <img class="event-banner" src="/images/thumbnail_1.jpg" alt="picture">
     <h2><%= event.title %></h2>
     <p><%= event.location %></p>
-    <p><%= event.venueType %></p>
     <p><%= event.date.toLocaleDateString() %></p>
+    <p>hosted by <%= user.name %></p>
+    <p><%= event.venueType %></p>
     <p><%= event.description %></p>
     <p><%= event.cost %></p>
 
@@ -16,11 +18,11 @@
     
     <!-- attendees list -->
     <h2>Attendees:</h2>
-    <% if (event.users) {%>
+    <% if (event.attendees) {%>
 
             <ul>
-                <% event.users.forEach(function(u) { %>
-                  <li><%= u.user %></li>
+                <% event.attendees.forEach(function(e) { %>
+                  <li><%= u.userName %></li>
                 <% }) %>
             </ul>
 
@@ -34,14 +36,15 @@
     <h2>Comment section</h2>
 
     <!-- write a comment here -->
-    <form action="/events/<%= event._id %>/comments" method="POST">
-        <p><%= user.userName %></p>
-        <textarea name="content"></textarea>
-        <button type="submit">Add comment</button>
-    </form>
-
+    <% if (user) { %>
+        <form action="/events/<%= event._id %>/comments" method="POST">
+            <p><%= user.name %></p>
+            <textarea name="content"></textarea>
+            <button type="submit">Add comment</button>
+        </form>
+    <% } %>
     <!-- comment section -->
-    <% if (event.comments) { %>
+    <% if (event.comments.length) { %>
         <div>
             <% event.comments.forEach(function(c) { %>
                 <div>
@@ -51,19 +54,15 @@
                 <div><%= c.createdAt.toLocaleDateString() %></div>
                 <div><%= c.content %></div>
                 <!-- delete a comment -->
-                <% if (user?._id.equals(c.user)) { %>
-                    <form action="/events/<%= c._id %>?_method=DELETE" method="POST">
-                        <button type="submit">&times;</button>
-                    </form>
-                <% } %>
+                      <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                          <button type="submit">&times;</button>
+                      </form>
             <% }); %>
         </div>
     <% } else { %>
         <p>No comments yet</p>
     <% } %>
 </div>
-
-
 
 
 

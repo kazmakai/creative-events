@@ -6,13 +6,12 @@ const usersController = require('../controllers/users');
 // Require the auth middleware
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 // const cloudinary = require('../utils/cloudinary');
-// const upload = require('../utils/multer');
 
 
 // GET /users/:id/edit 
 router.get('/:id/edit', ensureLoggedIn, usersController.edit)
 // PUT /users/:id
-router.post('/:id', ensureLoggedIn, usersController.update)
+router.post('/:id', ensureLoggedIn, upload.single('image'), usersController.update)
 // GET /users/:id
 router.get('/:id', usersController.show);
 

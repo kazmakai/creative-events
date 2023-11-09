@@ -6,10 +6,10 @@
   </head>
   <body>
     <nav>
-        <a class="home-button nav-link" href="/events">Art Jammers</a>
+        <a class="home-button nav-link" href="/events">ArtJammers</a>
         <% if (user) { %>
           <a class="nav-link" href="/events/new"><img src="/images/plus.svg">Create Event</a>
-          <a class="nav-link" href="/users/<%= user.id %>"><img src="/images/user.svg">User</a>
+          <a class="nav-link" href="/users/<%= user.id %>"><img src="/images/user.svg">User Profile</a>
           <a class="nav-link" href="/logout"><img src="/images/logout.svg"></a></li>
         <% } else { %>
           <a class="nav-link" href="/auth/google"><img src="/images/login.svg"></a>
@@ -17,4 +17,3 @@
     </nav>
     
     <div class="main-container">
-      <h2><%= title %></h2>

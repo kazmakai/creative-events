@@ -3,14 +3,14 @@ const router = express.Router();
 // Connect events route to events controller
 const eventsController = require('../controllers/events');
 // Require the auth middleware
-// const ensureLoggedIn = require('../config/ensureLoggedIn');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 // const cloudinary = require('../utils/cloudinary');
 // const upload = require('../utils/multer');
 
 // GET /events
 router.get('/', eventsController.index);
 // GET /events/new
-router.get('/new', eventsController.new);
+router.get('/new', ensureLoggedIn, eventsController.new);
 // POST /events
 router.post('/', eventsController.create);
 // GET /events/:id

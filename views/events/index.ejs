@@ -1,15 +1,14 @@
 <%- include('../partials/header') %>
+<h1><%= title %></h1>
 
 <% events.forEach(function(e) { %>
 <a href="/events/<%= e._id %>">
     <div class="card-container">
         <img class="thumbnail-photo" src="../images/thumbnail_1.jpg">
         <div class="card-texts">
+            <h3><%= e.date.toLocaleDateString() %></h3>
             <h3 class="event-title"><%= e.title %></h3>
-            <div>
-                <h3><%= e.location %></h3>
-                <h3><%= e.date.toLocaleDateString() %></h3>
-            </div>
+            <h3><%= e.location %></h3>
         </div>
     </div>
 </a>
