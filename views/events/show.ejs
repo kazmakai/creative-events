@@ -3,7 +3,6 @@
 
 <div class="show-container">
     <h2 class="event-title"><%= event.title %></h2>
-    <p>hosted by <%= user.userName %></p>
     <img class="event-banner" src="/images/thumbnail_1.jpg" alt="picture">
     <div class="grid-container">
         <div class="grid-item">
@@ -22,7 +21,7 @@
             </div>
             <p id="location"><%= event.location %></p>
             <p id="time"><%= event.date.toLocaleDateString() %></p>
-            <p id="price">$<%= event.cost %></p>
+            <p id="price">¥<%= event.cost %></p>
             <p id="capacity"><%= event.capacity %></p>
         </div>
     </div>

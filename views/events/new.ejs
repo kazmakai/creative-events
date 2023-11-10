@@ -2,7 +2,7 @@
 <h1><%= title %></h1>
 
 <form class="form-container" action="/events" method="POST"> <!-- Event form -->
-    <label>Date and time: <!-- formate the date/time later -->
+    <label>Date and time:
       <input 
         type="datetime-local"
         name="date"
@@ -43,25 +43,6 @@
         </select>
       </label>
     </div>
-
-
-    <!-- <label>Event Type:
-      <select name="eventType">
-        <option value="Drawing">Drawing</option>
-        <option value="Painting">Painting</option>
-        <option value="Music">Music</option>
-        <option value="Pottery">Pottery</option>
-        <option value="Crafts">Crafts</option>
-      </select>
-    </label> -->
-
-    <!-- <label>Duration:
-      <input type="number" name="duration">
-    </label> -->
-
-    <!-- <label>Tags:
-      <input type="text" name="description" checked>
-    </label> -->
 
     <button type="submit" class="save-button">Add Event</button> 
   </form>
