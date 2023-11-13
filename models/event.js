@@ -1,9 +1,8 @@
 // require Mongoose
 const mongoose = require('mongoose');
-// Optional shortcut to the mongoose.Schemma class
 const Schema = mongoose.Schema;
 
-
+/* Comment Schema */
 const commentSchema = new Schema({
     content: String,
     user: {
@@ -11,16 +10,16 @@ const commentSchema = new Schema({
         ref: 'User',
         required: true
     },
-    name: String,
+    userName: String,
     avatar: String
 }, {
     timestamps: true
 });
 
-// Defining the basic schema for the event Model
+/* Event Schema */
 const eventSchema = new Schema({
     title: String,
-    image: {
+    coverImage: {
         type: String,
         default: "/images/thumbnail_1.jpg"
     },
@@ -33,7 +32,7 @@ const eventSchema = new Schema({
         }
     },
     duration: Number,
-    location: String, // Add Google Maps API (low priority)
+    location: String,
     venueType: {
         type: String,
         enum: ['Indoor', 'Outdoor']

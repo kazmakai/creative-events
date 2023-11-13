@@ -3,18 +3,18 @@
 
 <div class="show-container">
     <h2 class="event-title"><%= event.title %></h2>
-    <img class="event-banner" src="/images/thumbnail_1.jpg" alt="picture">
+    <img class="event-banner" src="<%= event.coverImage %>" alt="picture">
     <div class="grid-container">
         <div class="grid-item">
             <p><%= event.description %></p>
         </div>
         <div class="grid-item">
             <div class="edit-delete-buttons">
-                <!-- edit event-->
+                <!-- edit event -->
                 <a href="/events/<%= event._id %>/edit">
                     <button type="submit" class="edit-button">Edit event</button>
                 </a>
-                <!-- delete event button -->
+                <!-- delete event -->
                 <form action="/events/<%= event._id %>?_method=DELETE" method="POST">
                     <button type="submit" class="edit-button delete">Delete event</button>
                 </form>
@@ -28,23 +28,24 @@
     
 
     <h2>Comments</h2>
-    <!-- write a comment here -->
+    <!-- write a comment -->
     <% if (user) { %>
         <form action="/events/<%= event._id %>/comments" method="POST" class="comment-form">
             <textarea name="content" placeholder="Add a comment..."></textarea>
             <button type="submit" class="save-button">Add comment</button>
         </form>
     <% } %>
-    <!-- comment section -->
+    <!-- list of comments -->
     <% if (event.comments.length) { %>
         <div class="comments-wrapper">
             <% event.comments.forEach(function(c) { %>
                 <div  class="comment-container">
-                    <h3><%= c.userName %></h3>
                     <img alt="avatar" src="<%= c.avatar %>" referrerpolicy="no-referrer" class="user-thumbnail">
                     <div class="comment-texts">
-                        <p class="comment-timestamp"><%= c.createdAt.toLocaleDateString() %></p>
+                        <h3 class="inline"><%= c.userName %></h3>
+                        <p class="comment-timestamp inline"><%= c.createdAt.toLocaleDateString() %></p>
                         <p><%= c.content %></p>
+                        
                     </div>
                     <!-- delete a comment -->
                     <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">

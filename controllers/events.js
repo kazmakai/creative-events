@@ -51,10 +51,36 @@ async function edit(req, res) {
 
 async function update(req, res) {
     try {
-    let event = await Event.findByIdAndUpdate(req.params.id, req.body);
-    event.save();
-    res.redirect(`/events/${req.params.id}`);
-    } catch(err) {
-        console.log(err);
+      if (req.file) {
+        const result = await cloudinary.uploader.upload(req.file.path);
+        const event = await Event.findByIdAndUpdate(req.params.id, {
+          title: req.body.title,
+          userName: req.body.userName,
+          location: req.body.location,
+          venueType: req.body.venueType,
+          description: req.body.description,
+          capacity: req.body.capacity,
+          cost: req.body.cost,
+          coverImage: result.secure_url,
+          cloudinary_id: result.public_id
+        });
+        await event.save();
+        res.redirect(`/events/${event._id}`);
+      } else {
+        const event = await Event.findByIdAndUpdate(req.params.id, {
+          title: req.body.title,
+          userName: req.body.userName,
+          location: req.body.location,
+          venueType: req.body.venueType,
+          description: req.body.description,
+          capacity: req.body.capacity,
+          cost: req.body.cost
+        });
+        await event.save();
+        res.redirect(`/events/${event._id}`);
+      }
+    } catch (err) {
+      console.log(err);
     }
-}
+  }
+  

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const upload = require('../utilities/multer');
+
 // Connect users route to users controller
 const usersController = require('../controllers/users');
 // Require the auth middleware

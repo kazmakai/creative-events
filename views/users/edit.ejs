@@ -9,17 +9,17 @@
 
     <label>
         <h3>Username:</h3>
-        <input type="text" name="userName" required pattern="^[a-zA-Z0-9_-]{3,20}$" value="<%= user.userName %>">
+        <input type="text" name="userName" pattern="^[a-zA-Z0-9_-]{3,20}$" value="<%= user.userName %>">
     </label>
 
     <label>
         <h3>City:</h3>
-        <input type="text" name="city" required value="<%= user.city %>">
+        <input type="text" name="city" value="<%= user.city %>">
     </label>
 
     <label>
         <h3>About me:</h3>
-        <textarea type="text" name="aboutMe" required pattern="^[a-z]{0,10}$"><%= user.aboutMe %></textarea>
+        <textarea type="text" name="aboutMe" pattern="^[a-z]{0,10}$"><%= user.aboutMe %></textarea>
     </label>
     
     <button type="submit" class="save-button">Save changes</button>

@@ -4,7 +4,7 @@
 <% events.forEach(function(e) { %>
 <a href="/events/<%= e._id %>">
     <div class="card-container">
-        <img class="thumbnail-photo" src="../images/thumbnail_1.jpg">
+        <img class="thumbnail-photo" src="<%= e.coverImage %>">
         <div class="card-texts">
             <h3><%= e.date.toLocaleDateString() %></h3>
             <h2 class="event-title"><%= e.title %></h2>

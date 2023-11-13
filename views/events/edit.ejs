@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
 
-<form class="form-container" action="/events/<%= event._id %>" method="POST">
+<form action="/events/<%= event._id %>" enctype="multipart/form-data" method="POST" class="form-container">
     <label>Event Picture:
-      <input type="file" name="image">
+      <input type="file" name="coverImage" value="<%= event.coverImage %>">
     </label>
   
     <label>Date and time:

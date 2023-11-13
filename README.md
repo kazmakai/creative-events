@@ -24,7 +24,10 @@ On Meetup, you have to create a group before you can create an event. On my web 
 ## Bugs that need to be fixed
 - Change event cover image
 - Other users can't comment
+- Display username on comments
 - "hosted by <%= user.userName %>" issue
+- Authorization fixes
+- Add regex on forms
 
 
 ## Features to add

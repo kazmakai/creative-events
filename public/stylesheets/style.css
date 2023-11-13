@@ -145,7 +145,7 @@ input[type=datetime-local]:focus {
   outline: 4px solid #8C44FF;
 }
 
-/* PROFILE */
+/* PROFILE -----------------------------------*/ 
 .profile-container {
   display: flex;
   align-items: center;
@@ -405,7 +405,7 @@ textarea:focus {
 
 .comment-timestamp {
   font-size: 0.8em;
-  color: grey;
+  color: lightgrey;
 }
 
 .comment-delete-button {
