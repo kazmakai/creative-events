@@ -21,6 +21,6 @@ router.delete('/:id', eventsController.delete);
 // GET /events/:id/edit
 router.get('/:id/edit', eventsController.edit);
 // PUT /events/:id
-router.post('/:id', upload.single('coverImage'), eventsController.update);
+router.post('/:id', ensureLoggedIn, upload.single('coverImage'), eventsController.update);
 
 module.exports = router;

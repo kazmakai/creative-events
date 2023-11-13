@@ -63,7 +63,8 @@ The learning curve was quite steep as there were a bunch of new theories and tec
 ### Unresolved bugs
 - Commenter thumbnail doesn't reflect user avatar change
 - In the event edit page, datetime-local is not prefilled based on what was entered before. Need to re-enter date and time every time event is edited
-- Need to track the user who created the event. 
+- Need to track the user who created the event because the app only shows "hosted by" is the user. 
+
 
 
 ## Status
