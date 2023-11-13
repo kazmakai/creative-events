@@ -3,6 +3,13 @@
 
 <div class="show-container">
     <h2 class="event-title"><%= event.title %></h2>
+    <% if (user) { %>
+        <div class="hosted-by">
+            <p class="inline">Hosted by</p>
+            <img class="inline user-thumbnail-small" src="<%= user.avatar %>" referrerpolicy="no-referrer">
+        </div>
+        
+    <% } %>
     <img class="event-banner" src="<%= event.coverImage %>" alt="picture">
     <div class="grid-container">
         <div class="grid-item">

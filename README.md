@@ -1,59 +1,69 @@
 # Creative Events
 
-I run an urban sketching in Tokyo on Meetup and wanted to create a platform that is targeted to mainly creative/artistic events such as plein air painting sessions and small jazz performances. 
+This is somewhat a passion project of mine. Having ran an urban sketching Meetup group in Tokyo for over a year now with 650 members, I've wanted to attempt building a platform that is targeted to mainly creative/artistic events such as plein air painting sessions and small jazz performances. 
 
-On Meetup, you have to create a group before you can create an event. On my web app, as long as you're signed in, you can create events immediately. As easy as creating a room on Counter-Strike Online.
+Unlike on Meetup, where to create an event you must have first created a group, I wanted to have a more straight forward user journey where users can create events immediately as long as they're signed in. As simple as creating a room on Counter-Strike Online, and having people join you before starting a match. 
 
-[link to the app](https://kazmakai.github.io/todo-list/)
+[link to the app](https://creative-events-9c772d6b6784.herokuapp.com/events)
 
 ## Features
 - Browse Events near you
-- Create events
+- Create, edit and delete events
 - Comment on events
-- Edit and update events
 - Edit and update user profile
 
 ## Technologies
-1. NodeJS with Express and EJS
+1. Node.js with Express and EJS
 2. MongoDB with Mongoose
 3. HTML
 4. CSS
 5. JavaScript
-
-
-## Bugs that need to be fixed
-- Change event cover image
-- Other users can't comment
-- Display username on comments
-- "hosted by <%= user.userName %>" issue
-- Authorization fixes
-- Add regex on forms
-
-
-## Features to add
-- Add mapping API to sort and add events by location
-- Track attendees
-- Format Date and Time
-- Allow users to search events by tags
-- Add another layer of confirmation before deleting event
-- Make paragrpahs look more presentable
-- Copy to clipboard button for events
+6. Cloudinary
+7. Passport.js
 
 
 ## Approach
-I designed and develop this based on my personal preference; something that has a minimalistc user interface, is quick and snappy, and doesn't have a bunch of unnecessary customizations that I generally don't need. Just like a piece of scrap paper you write your shopping list on except it's digital. 
+### Planning
+Decided on the project scope, design, business logic, MVPs and necessary CRUDS, as well as the schema design.
 
-A to-do list is probably the most common basic app people will build and there are many ways to tackle it. For me, I prefer to first build the basic HTML and CSS of the app before establishing the interactive components, mainly the buttons in this case. 
+### OAuth
+To avoid potential clashes as more features get implemented to the web app, I first set up Google OAuth Authentication using Passport.js. 
 
-There are only 2 main functions to this app: add/delete tasks and check/uncheck tasks. 
+
+### Database and models
+Established the event and user schemas/model, connect them to MongoDB Atlas database before linking them to my Models.  
+After the necessary middleware are mounted, I moved on to creating the necessary views that will be rendered, starting with the MVP; the events views. 
+
+Each CRUD was tackled from the client's side:
+1. Add the UI that will trigger the HTTP request that matches the route (something like an event lsitener)
+2. Define the route in the appropriate router module that will match the HTTP request
+3. Code the actiion/function in the controller to perform the necessary CRUD and export it.
+
+### Deployment 
+Deployed using the cloud hosting provider Heroku. 
 
 
-To exercise my knowledge of DOM, I used it to manipulate CSS and HTML to create new list elements as opposed to using another popular way of first creating an empty list items in HTML. 
+### Debugging 
+There were a bunch of bugs. Almost half of them were caused by typos, the other were due to my lack of knowledge of how requests are being processed and then finally rendered back to the client. Thanks to my instructors and classmates, I was able to resolve most of them. 
 
-Once the main functions have been built, I added some accessories like sound effects, sound on/off button, adjusted the media query so it looks better on mobile, and saving the data to local storage.
 
 ## Retrospective
-Even thoughh this is a seemingly simple app, it did give me a decent challenge and I learned a handful of skills from it. Moving forward, I'd like to first fix a bug where the mute button svg disappears on click before adding a tasks edit feature. 
+The learning curve was quite steep as there were a bunch of new theories and techniques I was exposed to. It was definitely very challenging trying to grasp how different components of the backend communicate with one another. There were many instances where I was just stuck on what to do when I kept encountering similar errors. Nevertheless, with each bug I resolved, the more comfortable I became with dealing with them. 
+
+### Features to add 
+- Regex on certain forms input such as username 
+- Mapping API to sort and add events by location
+- Track number of attendees
+- Format Date and Time
+- Allow users to search events by tags
+- An additional layer of confirmation in a form of a popup before users can delete an event
+- Make paragrpahs look more presentable
+- Copy to clipboard button for events
+
+### Unresolved bugs
+- Commenter thumbnail doesn't reflect user avatar change
+- In the event edit page, datetime-local is not prefilled based on what was entered before. Need to re-enter date and time every time event is edited
+- Need to track the user who created the event. 
 
 
 ## Status
@@ -62,5 +72,5 @@ Further development to be made.
 
 ## Credits
 - My instructors from GA: Joel and CJ
-- Wan
+- My classmates for sharing their tips
 - Stack Overflow and Reddit
